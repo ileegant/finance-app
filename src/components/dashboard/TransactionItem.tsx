@@ -1,5 +1,6 @@
 import { CircleDashed } from "lucide-react";
 import type { Transaction } from "../../data/mockTransactions";
+import { formatDate } from "../../utils/formatDate";
 
 interface TransactionItemProps {
   transaction: Transaction;
@@ -16,7 +17,9 @@ export default function TransactionItem({ transaction }: TransactionItemProps) {
           <div>
             <h6>{title}</h6>
             <p className="text-xs">{category}</p>
-            <p className="text-xs text-neutral-500">{date}</p>
+            <p className="text-xs text-neutral-500">
+              {formatDate(new Date(date))}
+            </p>
           </div>
         </div>
         <p className={type === "income" ? "text-green-500" : "text-red-500"}>
