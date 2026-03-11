@@ -1,6 +1,6 @@
 import StatCard from "../components/dashboard/StatCard";
 import TotalBalance from "../components/dashboard/TotalBalance";
-import TransactionList from "../components/dashboard/TransactionList";
+import TransactionList from "../components/transactions/TransactionList";
 
 export default function DashboardPage() {
   return (
@@ -12,7 +12,7 @@ export default function DashboardPage() {
         <StatCard variant="expenses" amount={1247} cents={14} change="-14" />
       </div>
 
-      <TransactionList />
+      <TransactionList limit={5} showTitle />
     </div>
   );
 }

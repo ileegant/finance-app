@@ -1,11 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import DashboardPage from "../pages/DashboardPage";
 import MainLayout from "../layouts/MainLayout";
-const TransactionsPage = () => (
-  <div className="p-10">
-    <h1>All Transactions</h1>
-  </div>
-);
+import TransactionsPage from "../pages/TransactionsPage";
 
 export const router = createBrowserRouter([
   {
