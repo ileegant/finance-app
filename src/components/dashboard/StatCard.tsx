@@ -1,5 +1,6 @@
 import { BanknoteArrowDown, BanknoteArrowUp } from "lucide-react";
 import useTransactionStats from "../../hooks/useTransactionStats";
+import { formatAmount } from "../../utils/formatAmount";
 
 const VARIANTS = {
   income: {
@@ -30,7 +31,7 @@ export default function StatCard({
 
   const amount = variant === "income" ? income : expense;
 
-  const [integerPart, decimalPart] = amount.toFixed(2).split(".");
+  const [integerPart, decimalPart] = formatAmount(amount);
 
   return (
     <div className="flex flex-col flex-1 gap-2 p-4 rounded-2xl bg-slate-100/50 border border-slate-200/60 shadow-sm">
