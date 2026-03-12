@@ -19,7 +19,7 @@ export default function TransactionsPage() {
   };
 
   return (
-    <div className="flex flex-col gap-4 justify-center w-120">
+    <div className="flex flex-col gap-4 pt-10 w-120">
       <TransactionsHeader />
       <TransactionsFilter filterType={filterType} onTypeClick={handleFilter} />
       <TransactionList transactions={filteredTransactions} />

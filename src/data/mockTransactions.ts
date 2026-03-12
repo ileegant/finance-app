@@ -55,7 +55,7 @@ export const MOCK_TRANSACTIONS: Transaction[] = [
     id: "6",
     title: "Refund: Amazon",
     category: "shopping",
-    amount: 120.0,
+    amount: 12000.0,
     date: "2026-02-28T12:45:00Z",
     type: "income",
   },

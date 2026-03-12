@@ -1,4 +1,5 @@
 import { BanknoteArrowDown, BanknoteArrowUp } from "lucide-react";
+import useTransactionStats from "../../hooks/useTransactionStats";
 
 const VARIANTS = {
   income: {
@@ -15,19 +16,17 @@ type StatCardVariant = keyof typeof VARIANTS;
 
 interface StatCardProps {
   variant?: StatCardVariant;
-  amount: number;
-  cents: number;
   change: string;
 }
 
 export default function StatCard({
   variant = "income",
-  amount,
-  cents,
   change,
 }: StatCardProps) {
   const config = VARIANTS[variant];
   const Icon = config.icon;
+
+  const { income, expense } = useTransactionStats();
 
   return (
     <div className="flex flex-col flex-1 gap-2 p-4 rounded-2xl bg-slate-100/50 border border-slate-200/60 shadow-sm">
@@ -36,9 +35,9 @@ export default function StatCard({
         <p>{config.label}</p>
       </div>
       <h5 className="text-4xl font-bold">
-        ₴{amount}
+        ₴{variant === "income" ? income : expense}
         <span className="text-xl">
-          .<span className="text-neutral-400">{cents}</span>
+          .<span className="text-neutral-400">00</span>
         </span>
       </h5>
       <p className="text-xs text-neutral-500">
