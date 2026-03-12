@@ -8,14 +8,16 @@ interface TotalBalanceProps {
 export default function TotalBalance({ change }: TotalBalanceProps) {
   const { balance } = useTransactionStats();
 
+  const [integerPart, decimalPart] = balance.toFixed(2).split(".");
+
   return (
     <div className="flex justify-between p-4 rounded-2xl bg-white/60 border border-white/40 shadow-sm">
       <div className="flex flex-col justify-between">
         <p>Total balance</p>
         <h5 className="text-4xl font-bold">
-          ₴{balance}
+          ₴{integerPart}
           <span className="text-xl">
-            .<span className="text-neutral-400">00</span>
+            .<span className="text-neutral-400">{decimalPart}</span>
           </span>
         </h5>
         <p className="text-xs text-neutral-500">

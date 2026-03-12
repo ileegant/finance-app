@@ -28,6 +28,10 @@ export default function StatCard({
 
   const { income, expense } = useTransactionStats();
 
+  const amount = variant === "income" ? income : expense;
+
+  const [integerPart, decimalPart] = amount.toFixed(2).split(".");
+
   return (
     <div className="flex flex-col flex-1 gap-2 p-4 rounded-2xl bg-slate-100/50 border border-slate-200/60 shadow-sm">
       <div className="flex gap-2 ">
@@ -35,9 +39,9 @@ export default function StatCard({
         <p>{config.label}</p>
       </div>
       <h5 className="text-4xl font-bold">
-        ₴{variant === "income" ? income : expense}
+        ₴{integerPart}
         <span className="text-xl">
-          .<span className="text-neutral-400">00</span>
+          .<span className="text-neutral-400">{decimalPart}</span>
         </span>
       </h5>
       <p className="text-xs text-neutral-500">
