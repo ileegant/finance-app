@@ -1,5 +1,5 @@
 import useTransactionStats from "../../hooks/useTransactionStats";
-import { formatAmount } from "../../utils/formatAmount";
+import { formatAmountWithSeparators } from "../../utils/formatAmount";
 import ActionButton from "./ActionButton";
 
 interface TotalBalanceProps {
@@ -9,7 +9,7 @@ interface TotalBalanceProps {
 export default function TotalBalance({ change }: TotalBalanceProps) {
   const { balance } = useTransactionStats();
 
-  const [integerPart, decimalPart] = formatAmount(balance);
+  const [integerPart, decimalPart] = formatAmountWithSeparators(balance);
 
   return (
     <div className="flex justify-between p-4 rounded-2xl bg-white/60 border border-white/40 shadow-sm">
