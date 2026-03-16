@@ -1,13 +1,27 @@
 import { MOCK_TRANSACTIONS } from "../data/mockTransactions";
 
-export default function useTransactionStats() {
-  const data = MOCK_TRANSACTIONS;
-  const stats = data.reduce(
+interface useTransactionStatsProps {
+  startDate?: Date;
+  endDate?: Date;
+}
+
+export default function useTransactionStats({
+  startDate,
+  endDate,
+}: useTransactionStatsProps = {}) {
+  const stats = MOCK_TRANSACTIONS.reduce(
     (acc, t) => {
-      if (t.type === "income") {
-        acc.income += t.amount;
-      } else if (t.type === "expense") {
-        acc.expense += t.amount;
+      const transactionDate = new Date(t.date);
+
+      const isAfterStart = startDate ? transactionDate >= startDate : true;
+      const isBeforeEnd = endDate ? transactionDate <= endDate : true;
+
+      if (isAfterStart && isBeforeEnd) {
+        if (t.type === "income") {
+          acc.income += t.amount;
+        } else if (t.type === "expense") {
+          acc.expense += t.amount;
+        }
       }
       return acc;
     },

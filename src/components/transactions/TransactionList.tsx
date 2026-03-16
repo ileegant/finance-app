@@ -14,7 +14,6 @@ export default function TransactionList({
   showTitle = false,
   transactions,
 }: TransactionListProps) {
-  console.log(transactions);
   return (
     <div className="flex flex-col gap-4 p-4 rounded-2xl bg-white/80 border border-white/40 shadow-sm">
       {showTitle && (

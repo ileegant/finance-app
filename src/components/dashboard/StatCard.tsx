@@ -1,6 +1,6 @@
 import { BanknoteArrowDown, BanknoteArrowUp } from "lucide-react";
-import useTransactionStats from "../../hooks/useTransactionStats";
 import { formatAmountWithSeparators } from "../../utils/formatAmount";
+import useCalculatedStats from "../../hooks/useCalculateStats";
 
 const VARIANTS = {
   income: {
@@ -17,19 +17,16 @@ type StatCardVariant = keyof typeof VARIANTS;
 
 interface StatCardProps {
   variant?: StatCardVariant;
-  change: string;
 }
 
-export default function StatCard({
-  variant = "income",
-  change,
-}: StatCardProps) {
+export default function StatCard({ variant = "income" }: StatCardProps) {
   const config = VARIANTS[variant];
   const Icon = config.icon;
 
-  const { income, expense } = useTransactionStats();
+  const { current, incomeChange, expenseChange } = useCalculatedStats();
 
-  const amount = variant === "income" ? income : expense;
+  const amount = variant === "income" ? current.income : current.expense;
+  const change = variant === "income" ? incomeChange : expenseChange;
 
   const [integerPart, decimalPart] = formatAmountWithSeparators(amount);
 
@@ -46,7 +43,13 @@ export default function StatCard({
         </span>
       </h5>
       <p className="text-xs text-neutral-500">
-        <span className="text-green-600">{change}%</span> compared to last month
+        <span
+          className={Number(change) < 0 ? "text-red-600" : "text-green-600"}
+        >
+          {Number(change) > 0 && "+"}
+          {change}%
+        </span>{" "}
+        compared to last month
       </p>
     </div>
   );

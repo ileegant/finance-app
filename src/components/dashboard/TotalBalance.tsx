@@ -1,13 +1,11 @@
+import useCalculatedStats from "../../hooks/useCalculateStats";
 import useTransactionStats from "../../hooks/useTransactionStats";
 import { formatAmountWithSeparators } from "../../utils/formatAmount";
 import ActionButton from "./ActionButton";
 
-interface TotalBalanceProps {
-  change: string;
-}
-
-export default function TotalBalance({ change }: TotalBalanceProps) {
+export default function TotalBalance() {
   const { balance } = useTransactionStats();
+  const { balanceChange } = useCalculatedStats();
 
   const [integerPart, decimalPart] = formatAmountWithSeparators(balance);
 
@@ -22,8 +20,15 @@ export default function TotalBalance({ change }: TotalBalanceProps) {
           </span>
         </h5>
         <p className="text-xs text-neutral-500">
-          <span className="text-green-600">{change}%</span> compared to last
-          month
+          <span
+            className={
+              Number(balanceChange) < 0 ? "text-red-600" : "text-green-600"
+            }
+          >
+            {Number(balanceChange) > 0 && "+"}
+            {balanceChange}%
+          </span>{" "}
+          compared to last month
         </p>
       </div>
 
