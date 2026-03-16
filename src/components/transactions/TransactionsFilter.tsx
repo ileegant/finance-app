@@ -17,8 +17,8 @@ export default function TransactionsFilter({
         <button
           key={type}
           onClick={() => onTypeClick(type)}
-          className={`text-sm px-4 border border-slate-600 rounded-xl cursor-pointer capitalize ${
-            filterType === type ? "bg-slate-600/80 text-slate-50" : ""
+          className={`text-sm px-4 border border-neutral-600 rounded-xl cursor-pointer capitalize ${
+            filterType === type ? "bg-neutral-600 text-slate-50" : ""
           }`}
         >
           {type}

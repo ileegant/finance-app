@@ -22,7 +22,7 @@ export default function TransactionCard({
   const isIncome = type === "income";
 
   return (
-    <div className="flex flex-col gap-6 p-4 rounded-2xl bg-white/80 border border-white/40 shadow-sm">
+    <div className="flex flex-col gap-4 p-4 rounded-2xl bg-white/80 border border-white/40 shadow-sm">
       <div className="flex gap-2">
         <Link to="/transactions">
           <ChevronLeft />
@@ -39,7 +39,7 @@ export default function TransactionCard({
         </div>
         <div className="text-right">
           <h5
-            className={`text-4xl font-bold ${
+            className={`text-3xl font-bold ${
               isIncome ? "text-green-600" : "text-red-600"
             }`}
           >
@@ -56,7 +56,7 @@ export default function TransactionCard({
           <h6 className="text-neutral-500 capitalize">{type}</h6>
         </div>
       </div>
-      <div className="flex justify-between text-sm text-neutral-400">
+      <div className="flex justify-between text-xs text-neutral-400">
         <div>{formatDate(new Date(date))}</div>
         <div>Transaction ID: {id}</div>
       </div>
