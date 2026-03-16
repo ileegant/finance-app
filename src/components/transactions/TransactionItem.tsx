@@ -1,13 +1,14 @@
 import type { Transaction } from "../../data/mockTransactions";
 import { formatDate } from "../../utils/formatDate";
 import { CATEGORY_MAP } from "../../constants/categories";
+import { Link } from "react-router-dom";
 
 interface TransactionItemProps {
   transaction: Transaction;
 }
 
 export default function TransactionItem({ transaction }: TransactionItemProps) {
-  const { title, category, amount, date, type } = transaction;
+  const { id, title, category, amount, date, type } = transaction;
   const Icon = CATEGORY_MAP[category].icon;
 
   return (
@@ -15,7 +16,7 @@ export default function TransactionItem({ transaction }: TransactionItemProps) {
       <div className="flex items-center gap-2">
         <Icon className="w-6 h-6 " />
         <div>
-          <h6>{title}</h6>
+          <Link to={`/transactions/${id}`}>{title}</Link>
           <p className="text-[10px] text-slate-500">
             {formatDate(new Date(date))}
           </p>
