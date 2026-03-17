@@ -29,7 +29,7 @@ export default function TransactionForm() {
           <input
             {...register("title")}
             type="text"
-            placeholder="Опис (Сільпо, ЗП...)"
+            placeholder="Title"
             className={`${inputBaseStyles} flex-2`}
           />
           <div className="relative flex-1">
