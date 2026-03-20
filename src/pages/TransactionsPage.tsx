@@ -5,6 +5,7 @@ import { MOCK_TRANSACTIONS } from "../data/mockTransactions";
 import TransactionsFilter from "../components/transactions/TransactionsFilter";
 
 import type { TransactionType } from "../types";
+import TransactionForm from "../components/transactions/TransactionForm";
 
 export default function TransactionsPage() {
   const [filterType, setFilterType] = useState<TransactionType>("all");
@@ -19,9 +20,10 @@ export default function TransactionsPage() {
   };
 
   return (
-    <div className="flex flex-col gap-4 pt-10 w-120">
+    <div className="flex w-120 flex-col gap-4 pt-10">
       <TransactionsHeader />
       <TransactionsFilter filterType={filterType} onTypeClick={handleFilter} />
+      <TransactionForm />
       <TransactionList transactions={filteredTransactions} />
     </div>
   );

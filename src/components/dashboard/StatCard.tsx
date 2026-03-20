@@ -31,8 +31,8 @@ export default function StatCard({ variant = "income" }: StatCardProps) {
   const [integerPart, decimalPart] = formatAmountWithSeparators(amount);
 
   return (
-    <div className="flex flex-col flex-1 gap-2 p-4 rounded-2xl bg-slate-100/50 border border-slate-200/60 shadow-sm">
-      <div className="flex gap-2 ">
+    <div className="flex flex-1 flex-col gap-2 rounded-2xl border border-slate-200/60 bg-slate-100/50 p-4 shadow-sm">
+      <div className="flex gap-2">
         <Icon />
         <p>{config.label}</p>
       </div>

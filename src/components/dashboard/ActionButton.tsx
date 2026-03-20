@@ -16,8 +16,8 @@ export default function ActionButton({ variant = "send" }: ActionButtonProps) {
   const Icon = config.icon;
 
   return (
-    <button className="flex items-center gap-2 p-1 pr-16 rounded-full bg-white hover:bg-slate-50 shadow-sm cursor-pointer">
-      <div className="p-2 rounded-full bg-slate-100">
+    <button className="flex cursor-pointer items-center gap-2 rounded-full bg-white p-1 pr-16 shadow-sm hover:bg-slate-50">
+      <div className="rounded-full bg-slate-100 p-2">
         <Icon />
       </div>
       {config.label}

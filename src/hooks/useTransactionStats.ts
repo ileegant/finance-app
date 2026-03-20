@@ -25,7 +25,7 @@ export default function useTransactionStats({
       }
       return acc;
     },
-    { income: 0, expense: 0 }
+    { income: 0, expense: 0 },
   );
 
   const balance = stats.income - stats.expense;

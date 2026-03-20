@@ -3,7 +3,7 @@ export const formatAmount = (amount: number): [string, string] => {
 };
 
 export const formatAmountWithSeparators = (
-  amount: number
+  amount: number,
 ): [string, string] => {
   const formatter = new Intl.NumberFormat("uk-UA", {
     minimumFractionDigits: 2,

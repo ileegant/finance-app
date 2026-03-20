@@ -10,7 +10,7 @@ export default function TotalBalance() {
   const [integerPart, decimalPart] = formatAmountWithSeparators(balance);
 
   return (
-    <div className="flex justify-between p-4 rounded-2xl bg-white/60 border border-white/40 shadow-sm">
+    <div className="flex justify-between rounded-2xl border border-white/40 bg-white/60 p-4 shadow-sm">
       <div className="flex flex-col justify-between">
         <p>Total balance</p>
         <h5 className="text-4xl font-bold">

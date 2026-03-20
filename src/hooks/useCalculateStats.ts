@@ -24,15 +24,15 @@ export default function useCalculatedStats() {
   return {
     current: currentStats,
     incomeChange: getPercentage(currentStats.income, lastStats.income).toFixed(
-      0
+      0,
     ),
     expenseChange: getPercentage(
       currentStats.expense,
-      lastStats.expense
+      lastStats.expense,
     ).toFixed(0),
     balanceChange: getPercentage(
       currentStats.balance,
-      lastStats.balance
+      lastStats.balance,
     ).toFixed(0),
   };
 }

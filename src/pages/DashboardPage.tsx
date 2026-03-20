@@ -5,7 +5,7 @@ import { MOCK_TRANSACTIONS } from "../data/mockTransactions";
 
 export default function DashboardPage() {
   return (
-    <div className="flex flex-col gap-4 pt-10 w-120">
+    <div className="flex w-120 flex-col gap-4 pt-10">
       <TotalBalance />
 
       <div className="flex gap-4">

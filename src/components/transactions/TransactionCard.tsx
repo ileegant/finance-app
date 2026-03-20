@@ -22,7 +22,7 @@ export default function TransactionCard({
   const isIncome = type === "income";
 
   return (
-    <div className="flex flex-col gap-4 p-4 rounded-2xl bg-white/80 border border-white/40 shadow-sm">
+    <div className="flex flex-col gap-4 rounded-2xl border border-white/40 bg-white/80 p-4 shadow-sm">
       <div className="flex gap-2">
         <Link to="/transactions">
           <ChevronLeft />
@@ -31,7 +31,7 @@ export default function TransactionCard({
       </div>
       <div className="flex justify-between">
         <div className="flex items-center gap-4">
-          <Icon className="w-8 h-8" />
+          <Icon className="h-8 w-8" />
           <div>
             <h6 className="text-xl font-bold">{title}</h6>
             <h6 className="text-neutral-500">{categoryLabel}</h6>

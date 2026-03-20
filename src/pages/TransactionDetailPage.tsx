@@ -11,7 +11,7 @@ export default function TransactionDetailPage() {
   }
 
   return (
-    <div className="flex flex-col gap-4 pt-10 w-120">
+    <div className="flex w-120 flex-col gap-4 pt-10">
       <TransactionCard {...transaction} />
     </div>
   );
